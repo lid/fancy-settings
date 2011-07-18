@@ -222,6 +222,54 @@
         }
     });
     
+    Bundle.Textarea = new Class({
+        // label, text
+        // action -> change & keyup
+        "Extends": Bundle,
+        
+        "createDOM": function () {
+            this.bundle = new Element("div", {
+                "class": "setting bundle textarea"
+            });
+            
+            this.container = new Element("div", {
+                "class": "setting container textarea"
+            });
+            
+            this.element = new Element("textarea", {
+                "class": "setting element textarea"
+            });
+            
+            this.label = new Element("label", {
+                "class": "setting label textarea"
+            });
+        },
+        
+        "setupDOM": function () {
+            if (this.params.label !== undefined) {
+                this.label.set("html", this.params.label);
+                this.label.inject(this.container);
+                this.params.searchString += this.params.label + "•";
+            }
+            
+            this.element.inject(this.container);
+            this.container.inject(this.bundle);
+        },
+        
+        "addEvents": function () {
+            var change = (function (event) {
+                if (this.params.name !== undefined) {
+                    settings.set(this.params.name, this.get());
+                }
+                
+                this.fireEvent("action", this.get());
+            }).bind(this);
+            
+            this.element.addEvent("change", change);
+            this.element.addEvent("keyup", change);
+        }
+    });
+    
     Bundle.Checkbox = new Class({
         // label
         // action -> change
@@ -687,6 +735,7 @@
                 "description": "Description",
                 "button": "Button",
                 "text": "Text",
+                "textarea": "Textarea",
                 "checkbox": "Checkbox",
                 "slider": "Slider",
                 "popupButton": "PopupButton",
