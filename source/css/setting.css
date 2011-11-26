@@ -5,9 +5,10 @@
 */
 .tab-content h2 {
     margin: 0;
-    padding-bottom: 5px;
+    padding-bottom: 4px;
+	padding-top: 13px;
     font-size: 26px;
-    color: #707070;
+    color: #53637D;
     line-height: 1;
 }
 
