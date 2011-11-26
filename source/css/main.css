@@ -66,7 +66,9 @@ body {
     text-align: right;
 }
 
-#tab-container .tab {
+#tab-container .tab,
+body.searching #tab-container .tab.active {
+	background: transparent;
 	line-height: 1 !important;
     height: 16px;
 	padding: 7px 0;
@@ -77,6 +79,7 @@ body {
     line-height: 28px;
     color: #426DC9;
     cursor: pointer;
+	text-shadow: none;
 }
 
 #search-container {
@@ -101,14 +104,6 @@ body {
 	border-top: 1px solid #8FAAD9;
     color: black;
     text-shadow: #BBCEE9 0 1px 1px;
-}
-
-body.searching #tab-container .tab.active {
-    background-color: transparent;
-    border-color: transparent;
-    color: #808080;
-    text-shadow: inherit;
-    box-shadow: none;
 }
 
 #content {
