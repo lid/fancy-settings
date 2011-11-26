@@ -13,6 +13,7 @@ body {
 
 #sidebar {
     position: absolute;
+	z-index: 2;
     background-color: #EDEDED;
     background-image: linear-gradient(top, #EDEDED, #F5F5F5);
     background-image:
@@ -61,8 +62,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: visible;
     text-align: right;
 }
 
@@ -87,7 +87,11 @@ body {
 }
 
 #search-container input {
-    width: 130px;
+    position: relative;
+	z-index: 5;
+	margin: 0px;
+	font-size: 14px;
+	width: 226px;
 }
 
 #tab-container .tab.active, body.searching #search-container {
@@ -109,6 +113,7 @@ body.searching #tab-container .tab.active {
 
 #content {
     position: absolute;
+	z-index: 1;
     top: 0;
     left: 220px;
     right: 0;
